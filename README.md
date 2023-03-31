@@ -1,1 +1,1 @@
-Link to client `https://github.com/DevKay22/Merkuree.git`
+Link to client `https://github.com/DevKay22/Merkurie.git`
