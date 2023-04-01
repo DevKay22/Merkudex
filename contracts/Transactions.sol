@@ -9,17 +9,21 @@ contract Transactions {
 
     event Transfer(address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
   
+
     struct TransferStruct {
+         string message;
+        uint256 timestamp;
+        string keyword;
         address sender;
         address receiver;
         uint amount;
-        string message;
-        uint256 timestamp;
-        string keyword;
+       
     }
 
     TransferStruct[] transactions;
 
+
+   //Adding to the blockchain
     function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
         transactionCount += 1;
         transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
@@ -27,6 +31,8 @@ contract Transactions {
         emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
     }
 
+
+   //To get all transactions
     function getAllTransactions() public view returns (TransferStruct[] memory) {
         return transactions;
     }
